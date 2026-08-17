@@ -17,6 +17,7 @@ const pathChineseMap = {
   chargingStation: '智慧開電選址系統',
   commandCenterDashboard: '能源戰情系統展示牆',
   platformRedesign: '綠電平台視覺與架構優化',
+  eomc: '企業營運中心管理系統',
 }
 
 watch(

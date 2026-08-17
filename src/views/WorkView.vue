@@ -36,6 +36,27 @@ onMounted(() => {
       <h2 class="text-dark h1 pb-8 mb-0 fw-medium pt-8">Work</h2>
       <div class="row g-16">
         <div class="col-md-6 col-12">
+          <RouterLink to="/work/chargingStation" class="text-decoration-none">
+            <img
+              src="/Work_Overview/ChargingStationDSSDesign.jpg"
+              alt="work-img-2"
+              class="img-fluid work-img"
+            />
+            <div class="tag pt-8" @click.stop>
+              <span class="button border border-1 border-success text-success lh-170 me-3">
+                Web
+              </span>
+              <span class="button border border-1 border-success text-success lh-170">
+                DSS Design
+              </span>
+            </div>
+            <h3 class="text-success fs-8 lh-170 fw-medium pt-4 pb-3 m-0">智慧開電選址系統</h3>
+            <p class="lh-170">
+              一套企業內部的智慧選址決策系統，用於評估充電站場址的開發潛力，整合地理與商業數據，提供多維度評分分析。
+            </p>
+          </RouterLink>
+        </div>
+        <div class="col-md-6 col-12">
           <RouterLink to="/work/lineLiff" class="text-decoration-none">
             <img src="/Work_Overview/LINELiff.jpg" alt="work-img-1" class="img-fluid work-img" />
             <div class="tag pt-8" @click.stop>
@@ -55,10 +76,10 @@ onMounted(() => {
           </RouterLink>
         </div>
         <div class="col-md-6 col-12">
-          <RouterLink to="/work/chargingStation" class="text-decoration-none">
+          <RouterLink to="/work/eomc" class="text-decoration-none">
             <img
-              src="/Work_Overview/ChargingStationDSSDesign.jpg"
-              alt="work-img-2"
+              src="/EOMC/overview.jpg"
+              alt="企業營運中心管理系統"
               class="img-fluid work-img"
             />
             <div class="tag pt-8" @click.stop>
@@ -66,12 +87,12 @@ onMounted(() => {
                 Web
               </span>
               <span class="button border border-1 border-success text-success lh-170">
-                DSS Design
+                Dashboard
               </span>
             </div>
-            <h3 class="text-success fs-8 lh-170 fw-medium pt-4 pb-3 m-0">智慧開電選址系統</h3>
+            <h3 class="text-success fs-8 lh-170 fw-medium pt-4 pb-3 m-0">企業營運中心管理系統</h3>
             <p class="lh-170">
-              一套企業內部的智慧選址決策系統，用於評估充電站場址的開發潛力，整合地理與商業數據，提供多維度評分分析。
+              整合各事業單位的營運與財務資料，透過模組化資訊架構與清楚的狀態設計，協助主管快速掌握營運狀況。
             </p>
           </RouterLink>
         </div>

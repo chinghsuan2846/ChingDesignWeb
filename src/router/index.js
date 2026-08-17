@@ -6,6 +6,7 @@ import LineLiffView from '../views/LineLiffView.vue'
 import CharingStationView from '@/views/ChargingStationView.vue'
 import CommandCenterDashboardView from '@/views/CommandCenterDashboardView.vue'
 import PlatformRedesignView from '@/views/PlatformRedesignView.vue'
+import EomcView from '@/views/EomcView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/work/platformRedesign',
       name: 'work-platformRedesign',
       component: PlatformRedesignView,
+    },
+    {
+      path: '/work/eomc',
+      name: 'work-eomc',
+      component: EomcView,
     },
   ],
   scrollBehavior(to, from, savedPosition) {
