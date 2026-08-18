@@ -119,23 +119,23 @@
       />
     </div>
   </div>
-  <ParallaxSection image="PlatformRedesign/Multiplemockups.svg" />
+  <ParallaxSection image="PlatformRedesign/Multiplemockups.svg" class="platform-redesign-parallax" />
   <div class="information">
     <section class="bg-info custom-padding">
       <div class="bar-target-interface position-relative">
-        <div class="d-flex justify-content-center pt-16">
+        <div class="d-flex justify-content-center pt-16 platform-showcase-heading">
           <BaseDot text="介面展示" class="pb-4" />
         </div>
         <div class="row padding">
-          <div class="col-5 d-flex flex-column">
-            <h4 class="fw-medium fs-7 pb-5 pt-16 w-100">
+          <div class="col-12 col-lg-5 d-flex flex-column platform-interface-copy">
+            <h4 class="fw-medium fs-7 pb-5 pt-16 w-100 platform-interface-title">
               <span class="high-light"> 清晰分層，功能定位更直覺 </span>
             </h4>
-            <p class="text-start pe-24 me-24 mb-20">
+            <p class="text-start pe-24 me-24 mb-20 platform-interface-description">
               頁面以三層架構固定關鍵功能位置：第一層掌握主要操作、第二層呈現子步驟與任務、第三層聚焦表格操作。穩定的結構讓使用者不必反覆尋找，操作更高效順暢。
             </p>
           </div>
-          <div class="col-7 d-flex position-relative align-items-center">
+          <div class="col-12 col-lg-7 d-flex position-relative align-items-center platform-interface-visual">
             <img src="/PlatformRedesign/mockup.png" alt="interface1" class="img-position-1" />
           </div>
         </div>
@@ -228,6 +228,122 @@ p {
 .stepNumber {
   width: 36px;
   height: 36px;
+}
+
+.custom-width video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 991.98px) {
+  .information > .container-xl.custom-padding {
+    padding: 60px 24px;
+  }
+
+  .information > section.custom-padding,
+  .information > section:not(.custom-padding) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .information > section.custom-padding {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .bar-target-interface {
+    height: auto;
+    min-height: 0;
+    padding: 48px 0 64px;
+  }
+
+  .platform-showcase-heading {
+    padding-top: 0 !important;
+  }
+
+  .bar-target-interface > .row {
+    height: auto !important;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+  }
+
+  .bar-target-interface > .row > .platform-interface-copy,
+  .bar-target-interface > .row > .platform-interface-visual {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .platform-interface-copy {
+    order: 1;
+    align-items: center !important;
+  }
+
+  .platform-interface-visual {
+    order: 2;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 32px;
+  }
+
+  .platform-interface-title {
+    padding-top: 32px !important;
+    padding-bottom: 20px !important;
+    text-align: center;
+    white-space: normal;
+    font-size: 20px !important;
+  }
+
+  .platform-interface-description {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  .img-position-1 {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .custom-width {
+    width: 100%;
+  }
+
+  .custom-padding-bottom {
+    padding-bottom: 48px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .platform-redesign-parallax {
+    height: 52vh;
+    min-height: 420px;
+  }
+
+  .platform-redesign-parallax :deep(.parallax-background) {
+    height: 100%;
+    top: 0;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 390px) {
+  .platform-redesign-parallax :deep(.parallax-background) {
+    height: 100%;
+    top: 0;
+  }
+
+  .platform-interface-title {
+    font-size: 18px !important;
+  }
 }
 </style>
 

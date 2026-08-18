@@ -275,14 +275,16 @@
       />
     </div>
   </div>
-  <ParallaxSection image="ChargingStation/mockup.svg" />
+  <ParallaxSection image="ChargingStation/mockup.svg" class="charging-station-parallax" />
   <div class="information">
     <section class="bg-white custom-padding">
       <div class="container">
         <BaseDot text="易用性測試" class="pb-12" />
-        <div class="d-flex align-items-start mb-12">
-          <p class="bg-success text-white custom-rounded-2 fw-bold mb-0 fs-8 lh-140">站點評估</p>
-          <ul class="lh-170 ps-8">
+        <div class="usability-task mb-12">
+          <p class="usability-task-badge bg-success text-white custom-rounded-2 fw-bold mb-0 fs-8 lh-140">
+            站點評估
+          </p>
+          <ul class="usability-task-list lh-170 ps-8">
             <li>任務情境：業務取得地址，需要透過系統進行建站評估，生成評分</li>
             <li>任務目的：了解使用者能否透過系統快速評估建站潛力，與操作準確性</li>
           </ul>
@@ -304,22 +306,22 @@
     </section>
     <section class="bg-info">
       <div>
-        <div class="bar-target-interface position-relative">
+        <div class="bar-target-interface interface-showcase-first position-relative">
           <div class="bar-line" style="top: 272px">
             <div class="bar-line-body-left"></div>
           </div>
-          <div class="d-flex justify-content-center pt-16">
+          <div class="d-flex justify-content-center pt-16 interface-showcase-heading">
             <BaseDot text="介面展示" class="pb-4" />
           </div>
           <div class="row h-100">
-            <div class="col-6 d-flex position-relative">
+            <div class="col-12 col-lg-6 d-flex position-relative interface-visual">
               <img src="/ChargingStation/interface1.png" alt="interface1" class="img-position-1" />
             </div>
-            <div class="col-5 d-flex flex-column align-items-end">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-1">
+            <div class="col-12 col-lg-5 d-flex flex-column align-items-end interface-copy">
+              <h4 class="fw-medium fs-7 pb-5 custom-padding-1 interface-title">
                 <span class="high-light"> 熱力圖色彩規劃 </span>
               </h4>
-              <p class="text-end pt-8 ps-24 ms-24 mb-20">
+              <p class="interface-description text-end pt-8 ps-24 ms-24 mb-20">
                 為保持深色背景的設計感，同時避免紅色帶來警示感，熱力圖採用藍綠漸變，密集區域以淺亮色呈現，兼顧直覺性與視覺美感
               </p>
             </div>
@@ -335,15 +337,15 @@
             <div class="bar-line-body-right"></div>
           </div>
           <div class="row justify-content-between h-100">
-            <div class="offset-1 col-5 d-flex flex-column align-items-start">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-2">
+            <div class="offset-0 offset-lg-1 col-12 col-lg-5 d-flex flex-column align-items-start interface-copy">
+              <h4 class="fw-medium fs-7 pb-5 custom-padding-2 interface-title">
                 <span class="high-light"> 可視化地圖，一眼掌握最佳分布！ </span>
               </h4>
-              <p class="text-start pt-8 pe-20 me-20 mb-20">
+              <p class="interface-description text-start pt-8 pe-20 me-20 mb-20">
                 系統以直觀地圖呈現場址與周邊資訊，從行政區到村里不同粒度的資料都能清楚展示，幫助使用者快速掌握最佳分布與潛在熱區。
               </p>
             </div>
-            <div class="col-6 d-flex align-items-center position-relative">
+            <div class="col-12 col-lg-6 d-flex align-items-center position-relative interface-visual">
               <img src="/ChargingStation/interface2.png" alt="interface2" class="img-position-2" />
             </div>
           </div>
@@ -358,14 +360,14 @@
             <div class="bar-line-body-left-2"></div>
           </div>
           <div class="row h-100">
-            <div class="col-6 d-flex align-items-center position-relative">
+            <div class="col-12 col-lg-6 d-flex align-items-center position-relative interface-visual">
               <img src="/ChargingStation/interface3.png" alt="interface3" class="img-position-3" />
             </div>
-            <div class="col-5 d-flex flex-column align-items-end">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-3">
+            <div class="col-12 col-lg-5 d-flex flex-column align-items-end interface-copy">
+              <h4 class="fw-medium fs-7 pb-5 custom-padding-3 interface-title">
                 <span class="high-light"> 多維度數據整合，靈活圖層篩選！ </span>
               </h4>
-              <p class="text-end pt-8 ps-24 ms-24 mb-20">
+              <p class="interface-description text-end pt-8 ps-24 ms-24 mb-20">
                 整合交通流量、家戶數、POI
                 景點、競爭品牌等多種資料，並提供靈活圖層切換功能，讓使用者依需求查看不同資訊維度，提升分析效率。
               </p>
@@ -381,15 +383,15 @@
             <div class="bar-line-body-right-2"></div>
           </div>
           <div class="row justify-content-between h-100">
-            <div class="offset-1 col-5 d-flex flex-column align-items-start">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-4">
+            <div class="offset-0 offset-lg-1 col-12 col-lg-5 d-flex flex-column align-items-start interface-copy">
+              <h4 class="fw-medium fs-7 pb-5 custom-padding-4 interface-title">
                 <span class="high-light"> 智能選址評分，助你精準決策！ </span>
               </h4>
-              <p class="text-start pt-8 pe-24 me-24 mb-20">
+              <p class="interface-description text-start pt-8 pe-24 me-24 mb-20">
                 自動對輸入的場址進行評分，結合多項指標提供量化參考，協助業務精準判斷每個場址的開發潛力與優先順序。
               </p>
             </div>
-            <div class="col-6 d-flex align-items-center position-relative">
+            <div class="col-12 col-lg-6 d-flex align-items-center position-relative interface-visual">
               <img src="/ChargingStation/interface4.png" alt="interface4" class="img-position-4" />
             </div>
           </div>
@@ -429,6 +431,19 @@ p {
 .custom-rounded-2 {
   padding: 4.5px 24px;
   border-radius: 38px;
+}
+.usability-task::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.usability-task-badge {
+  float: left;
+  white-space: nowrap;
+  margin-right: 16px !important;
+}
+.usability-task-list {
+  margin-bottom: 0;
 }
 .custom-padding {
   padding: 60px;
@@ -601,6 +616,129 @@ p {
   .border-lg-end {
     border-right: 1px solid #b8cade !important;
     border-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  /* Keep the same page gutter as the LINE Liff case study. */
+  .information > .container-xl.custom-padding {
+    padding: 60px 24px;
+  }
+
+  .information > section.custom-padding,
+  .information > section:not(.custom-padding) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .bar-target-interface {
+    height: auto;
+    min-height: 0;
+    padding: 48px 0 64px;
+  }
+
+  .interface-showcase-first {
+    padding-top: 32px;
+  }
+
+  .interface-showcase-first .interface-showcase-heading {
+    padding-top: 48px !important;
+  }
+
+  .bar-target-interface > .row {
+    height: auto !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .bar-target-interface > .row > .interface-copy,
+  .bar-target-interface > .row > .interface-visual {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .bar-target-interface > .row > .interface-copy {
+    order: 1;
+    align-items: center !important;
+  }
+
+  .bar-target-interface > .row > .interface-visual {
+    order: 2;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .bar-target-interface .bar-line {
+    display: none;
+  }
+
+  .interface-title {
+    width: 100%;
+    padding-top: 32px !important;
+    padding-bottom: 20px !important;
+    text-align: center;
+    white-space: normal;
+    font-size: 20px !important;
+  }
+
+  .interface-description {
+    padding: 0 !important;
+    margin: 0 0 32px !important;
+    text-align: center !important;
+  }
+
+  .interface-visual .img-position-1,
+  .interface-visual .img-position-2,
+  .interface-visual .img-position-3,
+  .interface-visual .img-position-4 {
+    position: static;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  .interface-visual .img-position-1,
+  .interface-visual .img-position-4 {
+    width: 90%;
+  }
+
+  .custom-padding-1,
+  .custom-padding-2,
+  .custom-padding-3,
+  .custom-padding-4 {
+    padding-top: 32px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .interface-title {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 390px) {
+  .charging-station-parallax :deep(.parallax-background) {
+    height: 100%;
+    top: 0;
+  }
+
+  .interface-title {
+    font-size: 18px !important;
+    letter-spacing: -0.08em;
+    white-space: nowrap;
+  }
+
+  .interface-title .high-light {
+    letter-spacing: inherit;
+  }
+
+  .interface-description {
+    font-size: 14px;
   }
 }
 </style>

@@ -10,7 +10,7 @@ const workExperience = [
     role: '產品設計師',
     period: '2024 三月- 目前',
     responsibilities: [
-      '主要專案初期設計提案，定義視覺方向、頁面架構與 Design System，並延伸至後續功能流程、Wireframe 與 Mockup 的迭代設計。',
+      '主責專案初期設計提案，定義視覺方向、頁面架構與 Design System，並延伸至後續功能流程、Wireframe 與 Mockup 的迭代設計。',
       '參與設計開發流程優化，從共用流程與文件建立，到導入 AI Agent 生成與實際程式碼元件一致的 Storybook，降低設計與開發間的還原落差與重複調整成本。',
     ],
   },

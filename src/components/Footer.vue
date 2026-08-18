@@ -5,7 +5,7 @@ defineOptions({
 </script>
 
 <template>
-  <footer class="background border border-top-1 border-secondary bg-danger pb-16">
+  <footer class="background border-top border-top-1 border-secondary bg-danger pb-16">
     <div class="container">
       <div class="row align-items-center justify-content-between">
         <div class="col-md-8 col-12 footer-text">
@@ -41,6 +41,12 @@ footer {
 @media (max-width: 768px) {
   footer {
     padding: 24px 60px;
+  }
+}
+@media (max-width: 390px) {
+  footer {
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }
 .footer-text p {

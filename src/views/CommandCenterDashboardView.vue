@@ -42,24 +42,24 @@
       />
     </div>
   </div>
-  <ParallaxSection image="DashBoard/Multiplemockups.svg" />
+  <ParallaxSection image="DashBoard/Multiplemockups.svg" class="command-center-parallax" />
   <div class="information">
     <section class="bg-white custom-padding">
       <div>
-        <div class="bar-target-interface position-relative">
+        <div class="bar-target-interface interface-showcase-first position-relative">
           <div class="bar-line" style="top: 330px">
             <div class="bar-dot-right"></div>
             <div class="bar-line-body-right"></div>
           </div>
-          <div class="d-flex justify-content-center pt-16">
+          <div class="d-flex justify-content-center pt-16 interface-showcase-heading">
             <BaseDot text="介面展示" class="pb-4" />
           </div>
-          <div class="row padding">
-            <div class="col-5 d-flex flex-column">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-1 w-100">
+          <div class="row padding h-100">
+            <div class="col-12 col-lg-5 d-flex flex-column interface-copy">
+              <h4 class="fw-medium fs-7 pb-5 custom-padding-1 w-100 interface-title">
                 <span class="high-light"> 採用 Bento Design，打造彈性模組 </span>
               </h4>
-              <div class="w-100 d-flex pb-20">
+              <div class="w-100 d-flex pb-20 interface-features">
                 <div class="d-flex align-items-center me-12">
                   <div class="ring"></div>
                   <span class="ps-3">高度彈性</span>
@@ -73,22 +73,32 @@
                   <span class="ps-3">多規格適配</span>
                 </div>
               </div>
-              <p class="text-start pe-24 me-24 mb-20">
+              <p class="interface-description text-start pe-24 me-24 mb-20">
                 以便當格形式將戰情資訊拆分為模組，資訊可靈活調整，兼顧拼接螢幕與 Full HD 展示。
               </p>
             </div>
-            <div class="col-7 d-flex position-relative align-items-center">
-              <img
-                src="/DashBoard/mockup1_BentoDesing.png"
-                alt="interface1"
-                class="img-position-1"
-              />
+            <div class="col-12 col-lg-7 d-flex position-relative align-items-center interface-visual">
+              <picture class="bento-image">
+                <source media="(max-width: 390px)" srcset="/DashBoard/bento-design-phone.png" />
+                <source
+                  media="(min-width: 391px) and (max-width: 991.98px)"
+                  srcset="/DashBoard/bento-design-tablet.png"
+                />
+                <img
+                  src="/DashBoard/mockup1_BentoDesing.png"
+                  alt="interface1"
+                  class="img-position-1"
+                />
+              </picture>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <MarqueeText content="SMARTER ENERGY ACCESSIBLE GREEN" />
+    <MarqueeText
+      class="command-center-marquee"
+      content="SMARTER ENERGY ACCESSIBLE GREEN"
+    />
     <section class="bg-info pt-12">
       <div>
         <div class="bar-target-interface position-relative">
@@ -97,18 +107,18 @@
             <div class="bar-line-body-left"></div>
           </div>
           <div class="row h-100">
-            <div class="col-6 d-flex align-items-center position-relative">
+            <div class="col-12 col-lg-6 d-flex align-items-center position-relative interface-visual">
               <img
                 src="/DashBoard/mockup2_continuity..png"
                 alt="interface2"
                 class="img-position-2"
               />
             </div>
-            <div class="offset-1 col-4 d-flex flex-column align-items-end">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-2">
+            <div class="offset-0 offset-lg-1 col-12 col-lg-4 d-flex flex-column align-items-end interface-copy">
+              <h4 class="fw-medium fs-7 pb-5 custom-padding-2 interface-title">
                 <span class="high-light"> 延續品牌調性，營造科技感戰情牆 </span>
               </h4>
-              <p class="text-end pt-8 ps-10 ms-24 mb-20">
+              <p class="interface-description text-end pt-8 ps-10 ms-24 mb-20">
                 融入官網的跑馬燈、格紋背景與地圖等品牌元素，延續企業調性，同時營造科技感與專業戰情氛圍。
               </p>
             </div>
@@ -124,17 +134,24 @@
             <div class="bar-line-body-right-2"></div>
           </div>
           <div class="row justify-content-between h-100">
-            <div class="offset-1 col-5 d-flex flex-column align-items-start">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-3 ms-2">
+            <div class="offset-0 offset-lg-1 col-12 col-lg-5 d-flex flex-column align-items-start interface-copy">
+              <h4 class="fw-medium fs-7 pb-5 custom-padding-3 ms-2 interface-title">
                 <span class="high-light"> 融入動態元素，提升展示吸引力 </span>
               </h4>
-              <p class="text-start pt-8 pe-24 me-24 mb-20">
+              <p class="interface-description text-start pt-8 pe-24 me-24 mb-20">
                 為避免戰情牆只呈現靜態資訊，我們加入
                 動態元素，如數據變化動畫與焦點高亮，讓內容更生動易讀。在展覽或對外展示時，也能迅速吸引觀眾目光，提升整體互動感與科技感。
               </p>
             </div>
-            <div class="col-6 d-flex align-items-center position-relative">
-              <video src="/DashBoard/mockup3.webm" autoplay loop muted playsinline></video>
+            <div class="col-12 col-lg-6 d-flex align-items-center position-relative interface-visual">
+              <video
+                src="/DashBoard/mockup3.webm"
+                autoplay
+                loop
+                muted
+                playsinline
+                class="interface-video"
+              ></video>
             </div>
           </div>
         </div>
@@ -156,6 +173,7 @@
           <BeforeAfterSlider
             beforeImg="DashBoard/mockup4_before.png"
             afterImg="DashBoard/mockup4_after.png"
+            class="dashboard-before-after"
           />
         </div>
       </div>
@@ -338,6 +356,189 @@ p {
 }
 .custom-padding-bottom {
   padding-bottom: 80px;
+}
+.interface-title {
+  width: 100%;
+}
+.interface-video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 991.98px) {
+  /* Keep the same page gutter as the other responsive case studies. */
+  .information > .container-xl.custom-padding {
+    padding: 60px 24px;
+  }
+
+  .information > section.custom-padding,
+  .information > section:not(.custom-padding) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .information > section.custom-padding {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .bar-target-interface {
+    height: auto;
+    min-height: 0;
+    padding: 48px 0 64px;
+  }
+
+  .interface-showcase-first {
+    padding-top: 16px;
+  }
+
+  .interface-showcase-first .interface-showcase-heading {
+    padding-top: 24px !important;
+  }
+
+  .bar-target-interface > .row {
+    height: auto !important;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+  }
+
+  .bar-target-interface > .row > .interface-copy,
+  .bar-target-interface > .row > .interface-visual {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .bar-target-interface > .row > .interface-copy {
+    order: 1;
+    align-items: center !important;
+  }
+
+  .bar-target-interface > .row > .interface-visual {
+    order: 2;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .bar-target-interface .bar-line {
+    display: none;
+  }
+
+  .interface-title {
+    padding-top: 32px !important;
+    padding-bottom: 20px !important;
+    margin-left: 0 !important;
+    text-align: center;
+    white-space: normal;
+    font-size: 20px !important;
+  }
+
+  .interface-description {
+    padding: 0 !important;
+    margin: 0 0 8px !important;
+    text-align: center !important;
+  }
+
+  .interface-features {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 32px !important;
+  }
+
+  .interface-features > div {
+    margin-right: 0 !important;
+  }
+
+  .interface-visual .img-position-1,
+  .interface-visual .img-position-2 {
+    position: static;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  .interface-video {
+    width: 100%;
+  }
+
+  .custom-padding-1,
+  .custom-padding-2,
+  .custom-padding-3 {
+    padding-top: 32px;
+  }
+
+  .custom-width {
+    width: 100%;
+  }
+
+  .custom-padding-bottom {
+    padding-bottom: 48px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .interface-title {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 390px) {
+  .command-center-parallax :deep(.parallax-background) {
+    height: 100%;
+    top: 0;
+  }
+
+  .interface-title {
+    font-size: 18px !important;
+    letter-spacing: -0.08em;
+    white-space: nowrap;
+  }
+
+  .interface-title .high-light {
+    letter-spacing: inherit;
+  }
+
+  .interface-features {
+    flex-wrap: nowrap;
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .interface-features > div {
+    flex: 0 1 auto;
+  }
+
+  .interface-features .ring {
+    width: 12px;
+    height: 12px;
+  }
+
+  .interface-features span {
+    padding-left: 4px !important;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .interface-visual > .bento-image {
+    display: block;
+    width: 100%;
+  }
+
+  .dashboard-before-after :deep(.slider-container) {
+    width: 96%;
+  }
+
+  .interface-description {
+    font-size: 14px;
+    margin-bottom: 8px !important;
+  }
 }
 </style>
 

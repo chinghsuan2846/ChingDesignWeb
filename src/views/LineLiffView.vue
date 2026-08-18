@@ -76,10 +76,10 @@
           </div>
           <div class="row flex-lg-row-reverse">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-center align-items-lg-end">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-2">
+              <h4 class="fw-medium fs-8 pb-5 custom-padding-2 interface-title">
                 <span class="high-light"> 快速掌握最近充電站，輕鬆回訪充電足跡！ </span>
               </h4>
-              <p class="text-center text-lg-end pt-lg-4">
+              <p class="interface-description text-center text-lg-end pt-lg-4">
                 介面除了能即時查看附近可用的充電站外，搜尋欄也會記錄使用者過去使用過的站點，方便快速選取，提升整體操作效率。
               </p>
             </div>
@@ -102,10 +102,10 @@
         <div class="bar-target-mockup1 position-relative">
           <div class="row">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-center align-items-lg-start">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-1">
+              <h4 class="fw-medium fs-8 pb-5 custom-padding-1 interface-title">
                 <span class="high-light"> 即時掌握充電空位，預約無憂，告別撲空！ </span>
               </h4>
-              <p class="text-center text-lg-start pt-xl-8 pe-lg-20 me-lg-20">
+              <p class="interface-description text-center text-lg-start pt-xl-8 pe-lg-20 me-lg-20">
                 介面整合即時充電樁狀態查詢與預約功能，使用者可一眼掌握空位情況，避免白跑，也能提前預約，提升整體充電效率與掌控感。
               </p>
             </div>
@@ -128,10 +128,10 @@
         <div class="bar-target-mockup3 position-relative">
           <div class="row flex-lg-row-reverse">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-center align-items-lg-end">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-3">
+              <h4 class="fw-medium fs-8 pb-5 custom-padding-3 interface-title">
                 <span class="high-light"> 隨時掌握充電進度，行程無縫順行！</span>
               </h4>
-              <p class="text-center text-lg-end pt-lg-4 ps-lg-20 ms-lg-20">
+              <p class="interface-description text-center text-lg-end pt-lg-4 ps-lg-20 ms-lg-20">
                 介面提供即時充電進度回報，使用者可隨時查看目前充電狀態，搭配充電完成通知，讓行程安排更有彈性也更安心。
               </p>
             </div>
@@ -155,10 +155,10 @@
         <div class="bar-target-mockup4 position-relative overflow-hidden">
           <div class="row">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-center align-items-lg-start">
-              <h4 class="fw-medium fs-7 pb-5 custom-padding-4">
+              <h4 class="fw-medium fs-8 pb-5 custom-padding-4 interface-title">
                 <span class="high-light"> 智慧分析充電支出，輕鬆掌握用電成本！ </span>
               </h4>
-              <p class="text-center text-lg-start pt-xl-8 pe-lg-20 me-lg-20">
+              <p class="interface-description text-center text-lg-start pt-xl-8 pe-lg-20 me-lg-20">
                 系統整合充電紀錄與金額統計，讓使用者能清楚掌握每次充電的支出與用電趨勢，協助更有效地管理用電成本。
               </p>
             </div>
@@ -258,10 +258,6 @@ p {
   border-radius: 10px;
   padding: 64px 32px;
 }
-.site-map-img {
-  border-radius: 10px;
-  padding: 35px 86px;
-}
 .high-light {
   background: linear-gradient(180deg, transparent 50%, #ffd194 50%);
   box-decoration-break: clone;
@@ -269,20 +265,15 @@ p {
   display: inline;
 }
 
-.custom-padding-2 {
-  white-space: nowrap;
-}
 .custom-padding-1 {
   padding-top: 64px;
 }
 .custom-padding-3 {
   padding-top: 64px;
-  white-space: nowrap;
 }
 
 .custom-padding-4 {
   padding-top: 64px;
-  white-space: nowrap;
 }
 @media (min-width: 992px) {
   .custom-padding-2 {
@@ -296,6 +287,11 @@ p {
   }
   .custom-padding-4 {
     padding-top: 29%;
+  }
+  .custom-padding-2,
+  .custom-padding-3,
+  .custom-padding-4 {
+    white-space: nowrap;
   }
 }
 .custom-padding-5 {
@@ -507,6 +503,70 @@ p {
 }
 .img-position-4 {
   width: 77%;
+}
+
+@media (max-width: 991.98px) {
+  /* Keep a consistent page gutter when the desktop columns stack. */
+  .information > .container-xl.custom-padding {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .information > section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .information > section > .container-xl,
+  .information > section > .container-xxl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .custom-padding-2,
+  .custom-padding-3,
+  .custom-padding-4 {
+    padding-top: 32px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .bar-target-mockup2::after,
+  .bar-target-mockup3::after {
+    display: none;
+  }
+
+  .bar-target-mockup2,
+  .bar-target-mockup3,
+  .bar-target-mockup4 {
+    overflow: visible;
+  }
+}
+
+.interface-title {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .interface-title {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 390px) {
+  .interface-title {
+    font-size: 18px !important;
+    letter-spacing: -0.08em;
+    white-space: nowrap;
+  }
+
+  .interface-title .high-light {
+    letter-spacing: inherit;
+  }
+
+  .interface-description {
+    font-size: 14px;
+  }
 }
 </style>
 

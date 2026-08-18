@@ -33,21 +33,21 @@ const hideNavbar = () => {
       </h1>
 
       <div class="d-flex align-items-center gap-3 pe-3">
-        <div class="d-none d-md-flex align-items-center gap-3">
+        <div class="d-none d-lg-flex align-items-center gap-3">
           <RouterLink class="nav-link text-success" to="/profile">Profile</RouterLink>
           <RouterLink class="nav-link text-success" to="/work">Work</RouterLink>
         </div>
 
         <a
-          href="Resume.pdf"
-          download="Ching_Resume.pdf"
+          href="sunny_簡歷.pdf"
+          download="sunny_簡歷.pdf"
           class="btn btn-outline-success"
           :class="{ dNone: isXs() }"
         >
           Download Resume
         </a>
 
-        <button class="menu-toggle d-md-none" :class="{ active: isOpen }" @click="toggleNavbar">
+        <button class="menu-toggle d-lg-none" :class="{ active: isOpen }" @click="toggleNavbar">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -62,8 +62,8 @@ const hideNavbar = () => {
           <RouterLink class="nav-link text-success" to="/work" @click="hideNavbar">Work</RouterLink>
           <a
             v-if="isXs()"
-            href="Resume.pdf"
-            download="Ching_Resume.pdf"
+            href="sunny_簡歷.pdf"
+            download="sunny_簡歷.pdf"
             class="btn btn-outline-success"
           >
             Download Resume
@@ -73,7 +73,7 @@ const hideNavbar = () => {
     </nav>
 
     <Transition name="fade">
-      <div v-if="isOpen" class="overlay d-md-none" @click="hideNavbar"></div>
+      <div v-if="isOpen" class="overlay d-lg-none" @click="hideNavbar"></div>
     </Transition>
   </header>
 </template>
@@ -98,21 +98,28 @@ header {
 }
 
 .header {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 8px 24px rgba(37, 38, 45, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
   position: fixed;
   top: 30px;
   width: 90%;
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px) saturate(125%);
+  backdrop-filter: blur(10px) saturate(125%);
   transition:
     background-color 0.3s ease,
-    border-radius 0.3s ease;
+    border-radius 0.3s ease,
+    box-shadow 0.3s ease;
   z-index: 102; /* 確保在遮罩之上 */
 }
 
 .header.is-open {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
 }
 
 /* 遮罩樣式 */
@@ -165,7 +172,7 @@ header {
   max-height: 250px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .custom-collapse {
     display: none;
   }
@@ -174,13 +181,25 @@ header {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991.98px) {
   .header {
     width: 100%;
     top: 0;
     border-radius: 0;
     left: 0;
-    backdrop-filter: none; /* 手機版展開通常建議關閉 blur 以維持效能 */
+    background-color: rgba(255, 255, 255, 0.64);
+    border-color: rgba(255, 255, 255, 0.78);
+    box-shadow:
+      0 8px 28px rgba(37, 38, 45, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  .header.is-open {
+    background-color: rgba(255, 255, 255, 0.88);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    backdrop-filter: blur(22px) saturate(145%);
   }
 }
 

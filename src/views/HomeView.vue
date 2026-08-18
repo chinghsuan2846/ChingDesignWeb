@@ -41,7 +41,7 @@ onMounted(() => {
     <section class="full-height-section">
       <div class="container">
         <div class="row">
-          <section class="col-md-8 offset-md-4 col-12 p-0">
+          <section class="col-md-8 offset-md-4 col-12 p-0 home-hero">
             <div class="home-text w-100 h-100">
               <h2 class="lh-120 fw-normal fs-1 text-success text-center">CHING DESIGN</h2>
             </div>
@@ -52,22 +52,22 @@ onMounted(() => {
                 <div class="content-text d-flex flex-column align-items-center h-100">
                   <h3 class="fw-medium fs-3 text-dark pb-12 pt-11">Work</h3>
                   <div class="pb-10">
-                    <RouterLink to="/work/lineLiff">
+                    <RouterLink to="/work/lineLiff" class="home-work-link">
                       <img src="/Home/sticker-1.png" alt="貼紙一" class="sticker-sm-1" />
                     </RouterLink>
                   </div>
                   <div class="pb-10">
-                    <RouterLink to="/work/chargingStation">
+                    <RouterLink to="/work/chargingStation" class="home-work-link">
                       <img src="/Home/sticker-2.png" alt="貼紙二" class="sticker-sm-2" />
                     </RouterLink>
                   </div>
                   <div class="pb-10">
-                    <RouterLink to="/work/commandCenterDashboard">
+                    <RouterLink to="/work/commandCenterDashboard" class="home-work-link">
                       <img src="/Home/sticker-3.png" alt="貼紙三" class="sticker-sm-3" />
                     </RouterLink>
                   </div>
                   <div class="pb-10">
-                    <RouterLink to="/work/platformRedesign">
+                    <RouterLink to="/work/platformRedesign" class="home-work-link">
                       <img src="/Home/sticker-4.png" alt="貼紙四" class="sticker-sm-4" />
                     </RouterLink>
                   </div>
@@ -90,16 +90,16 @@ onMounted(() => {
                 </div>
                 <img src="/Home/BG_Stroke.svg" alt="背景曲線" class="img-overlay img-fluid" />
 
-                <RouterLink to="/work/lineLiff">
+                <RouterLink to="/work/lineLiff" class="home-work-link">
                   <img src="/Home/sticker-1.png" alt="貼紙一" class="sticker-1" />
                 </RouterLink>
-                <RouterLink to="/work/chargingStation">
+                <RouterLink to="/work/chargingStation" class="home-work-link">
                   <img src="/Home/sticker-2.png" alt="貼紙二" class="sticker-2" />
                 </RouterLink>
-                <RouterLink to="/work/commandCenterDashboard">
+                <RouterLink to="/work/commandCenterDashboard" class="home-work-link">
                   <img src="/Home/sticker-3.png" alt="貼紙三" class="sticker-3" />
                 </RouterLink>
-                <RouterLink to="/work/platformRedesign">
+                <RouterLink to="/work/platformRedesign" class="home-work-link">
                   <img src="/Home/sticker-4.png" alt="貼紙四" class="sticker-4" />
                 </RouterLink>
               </div>
@@ -253,7 +253,13 @@ onMounted(() => {
   transition: transform 0.3s ease;
 }
 .sticker-1:hover,
-.sticker-sm-1:hover {
+.sticker-sm-1:hover,
+.home-work-link:hover .sticker-1,
+.home-work-link:hover .sticker-sm-1,
+.home-work-link:focus-within .sticker-1,
+.home-work-link:focus-within .sticker-sm-1,
+.home-work-link:active .sticker-1,
+.home-work-link:active .sticker-sm-1 {
   transform: rotate(-15deg) scale(1.05);
 }
 .sticker-2 {
@@ -273,7 +279,13 @@ onMounted(() => {
   transition: transform 0.3s ease;
 }
 .sticker-2:hover,
-.sticker-sm-2:hover {
+.sticker-sm-2:hover,
+.home-work-link:hover .sticker-2,
+.home-work-link:hover .sticker-sm-2,
+.home-work-link:focus-within .sticker-2,
+.home-work-link:focus-within .sticker-sm-2,
+.home-work-link:active .sticker-2,
+.home-work-link:active .sticker-sm-2 {
   transform: rotate(-15deg) scale(1.05);
 }
 .sticker-3 {
@@ -293,7 +305,13 @@ onMounted(() => {
   rotate: 8deg;
 }
 .sticker-3:hover,
-.sticker-sm-3:hover {
+.sticker-sm-3:hover,
+.home-work-link:hover .sticker-3,
+.home-work-link:hover .sticker-sm-3,
+.home-work-link:focus-within .sticker-3,
+.home-work-link:focus-within .sticker-sm-3,
+.home-work-link:active .sticker-3,
+.home-work-link:active .sticker-sm-3 {
   transform: rotate(-15deg) scale(1.05);
 }
 .sticker-4 {
@@ -313,7 +331,13 @@ onMounted(() => {
   rotate: -10deg;
 }
 .sticker-4:hover,
-.sticker-sm-4:hover {
+.sticker-sm-4:hover,
+.home-work-link:hover .sticker-4,
+.home-work-link:hover .sticker-sm-4,
+.home-work-link:focus-within .sticker-4,
+.home-work-link:focus-within .sticker-sm-4,
+.home-work-link:active .sticker-4,
+.home-work-link:active .sticker-sm-4 {
   transform: rotate(15deg) scale(1.05);
 }
 .personal-card {
@@ -337,6 +361,85 @@ onMounted(() => {
   }
 }
 
+/* 平板首頁：以 768px 參考版面維持完整的卡片構圖 */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .full-height-section > .container {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .full-height-section > .container > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .full-height-section > .container > .row > section:first-child {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .full-height-section > .container > .row > section:nth-child(n + 2) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .full-height-section > .container > .row > section:nth-child(3) {
+    padding-bottom: 120px !important;
+  }
+
+  .home-hero {
+    height: 751px;
+  }
+
+  .fixed-bg video {
+    width: 100%;
+  }
+
+  .content {
+    width: calc(100% - 48px) !important;
+    height: 690px !important;
+    min-height: 690px !important;
+    max-height: none !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-bg {
+    height: 100% !important;
+  }
+
+  .sticker-1 {
+    top: 10%;
+    left: 7%;
+  }
+
+  .sticker-2 {
+    top: 10%;
+    right: 7%;
+  }
+
+  .sticker-3 {
+    bottom: 10%;
+    left: 7%;
+  }
+
+  .sticker-4 {
+    bottom: 8%;
+    right: 7%;
+  }
+
+  .personal-card {
+    width: 74%;
+    max-width: 74%;
+  }
+}
+
 .personal-card-img {
   max-width: 170px;
   max-height: 170px;
@@ -355,4 +458,68 @@ onMounted(() => {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 }
+
+/* 平板與手機：讓動畫成為 Hero 背景，標題疊在動畫上方 */
+@media (max-width: 991.98px) {
+  .fixed-bg {
+    position: absolute;
+    top: 0;
+    height: calc(80px + clamp(653px, 94.7vw, 727px));
+    align-items: flex-start;
+  }
+
+  .fixed-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 10% center;
+  }
+
+  .home-hero {
+    position: relative;
+    height: clamp(653px, 94.7vw, 727px);
+  }
+
+  .home-text {
+    position: relative;
+    z-index: 12;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100% !important;
+    padding: clamp(150px, 24.5vw, 188px) 0 0 !important;
+  }
+
+  .home-text h2 {
+    margin-bottom: 0;
+  }
+}
+
+/* 手機：影片再縮小，保留更多背景留白 */
+@media (max-width: 767.98px) {
+  .fixed-bg video {
+    width: 85%;
+    height: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .full-height-section > .container {
+    width: 100%;
+    max-width: none;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .full-height-section > .container > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .full-height-section > .container > .row > section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 </style>

@@ -29,7 +29,7 @@ watch(
 </script>
 
 <template>
-  <nav v-if="paths.length > 1" aria-label="breadcrumb" class="container background">
+  <nav v-if="paths.length > 1" aria-label="breadcrumb" class="container-xl background">
     <ol class="breadcrumb mb-0">
       <li
         v-for="(path, index) in paths"
@@ -64,5 +64,12 @@ watch(
 }
 nav {
   padding-top: 134px;
+}
+
+@media (max-width: 991.98px) {
+  nav {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 </style>
