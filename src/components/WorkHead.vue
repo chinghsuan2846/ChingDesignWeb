@@ -10,7 +10,7 @@
       <div>
         <h2 class="text-dark h1 pb-8 mb-0 fw-medium">Work</h2>
         <div class="row g-5 pb-16 justify-content-between">
-          <div class="col-12 col-md-5">
+          <div class="col-12 col-lg-5">
             <span class="button border border-1 border-success text-success lh-170">
               {{ props.tag }}
             </span>
@@ -19,7 +19,7 @@
               {{ props.content }}
             </p>
           </div>
-          <div class="col-12 col-md-7">
+          <div class="col-12 col-lg-7">
             <img
               :src="imgUrl"
               :alt="alt"
@@ -112,6 +112,19 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (max-width: 991.98px) {
+  .head {
+    height: auto;
+    min-height: 85vh;
+    padding: 72px 0 48px;
+  }
+
+  .head .container-xl {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 .button {
   border-radius: 100px;

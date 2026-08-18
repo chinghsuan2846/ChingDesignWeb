@@ -8,7 +8,7 @@
         <p class="ps-md-16">{{ props.role }}</p>
       </div>
       <div class="col-6 d-md-flex">
-        <h4 class="fw-medium fs-9 lh-170">專案時間</h4>
+        <h4 class="fw-medium fs-9 lh-170">{{ props.durationLabel }}</h4>
         <p class="ps-md-16">{{ props.projectDuration }}</p>
       </div>
       <div class="col-6 d-md-flex">
@@ -32,6 +32,7 @@ import BaseDot from '@/components/Dot.vue'
 const props = defineProps({
   role: { type: String, required: true },
   projectDuration: { type: String, required: true },
+  durationLabel: { type: String, default: '專案時間' },
   tools: { type: Array, required: true },
   tasks: { type: Array, required: true },
   imgUrl: { type: String, required: true },

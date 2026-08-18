@@ -16,12 +16,12 @@
         <div class="col-12 col-lg-9">
           <div class="row">
             <div class="col-6">
-              <RouterLink :to="route1">
+              <RouterLink :to="route1" class="other-work-link">
                 <img :src="imgUrl1" :alt="alt1" class="img-fluid img-others" />
               </RouterLink>
             </div>
             <div class="col-6">
-              <RouterLink :to="route2">
+              <RouterLink :to="route2" class="other-work-link">
                 <img :src="imgUrl2" :alt="alt2" class="img-fluid img-others" />
               </RouterLink>
             </div>
@@ -62,7 +62,25 @@ defineProps({
 }
 
 .img-others {
+  display: block;
+  width: 100%;
+  transition: transform 280ms ease;
+}
+.other-work-link {
+  display: block;
+  overflow: hidden;
   border-radius: 8px;
+  transition: box-shadow 280ms ease;
+}
+.other-work-link:hover .img-others,
+.other-work-link:focus-visible .img-others,
+.other-work-link:active .img-others {
+  transform: scale(1.08);
+}
+.other-work-link:hover,
+.other-work-link:focus-visible,
+.other-work-link:active {
+  box-shadow: 0 10px 24px rgba(37, 38, 45, 0.16);
 }
 .text-bar {
   display: block;

@@ -4,11 +4,9 @@
     <p class="pb-12 mb-0">
       {{ props.content }}
     </p>
-    <img
-      :src="imgUrl"
-      :alt="alt"
-      class="img-fluid border border-1 border-light bg-info site-map-img"
-    />
+    <div class="site-map-frame border border-1 border-light bg-info">
+      <img :src="imgUrl" :alt="alt" class="site-map-img" />
+    </div>
   </section>
 </template>
 
@@ -23,7 +21,19 @@ const props = defineProps({
 
 <style scoped>
 .site-map-img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  display: block;
+}
+
+.site-map-frame {
+  width: 100%;
+  aspect-ratio: 3.05;
   border-radius: 10px;
-  padding: 35px 86px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

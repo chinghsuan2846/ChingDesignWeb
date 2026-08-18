@@ -15,8 +15,10 @@
         <p class="card-text lh-base">{{ content }}</p>
       </div>
 
-      <div class="col-12 col-md-5 d-flex">
-        <div class="rounded-3 d-flex justify-content-center align-items-center w-100 bg-white">
+      <div class="col-12 col-md-5 d-flex align-items-center">
+        <div
+          class="problem-image-box rounded-3 d-flex justify-content-center align-items-center w-100 bg-white"
+        >
           <img :src="imgUrl" :alt="alt" :class="['problem-img', sizeClass]" class="rounded-3" />
         </div>
       </div>
@@ -49,28 +51,26 @@ const sizeClass = computed(() => {
 </script>
 
 <style scoped>
-.problem-card .col-5 > div {
-  height: 100%;
+.problem-image-box {
+  aspect-ratio: 200 / 168;
+  overflow: hidden;
 }
 .step-number {
   width: 28px;
   height: 28px;
 }
 .problem-img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   display: block;
 }
 
-.problem-img.small-img {
-  max-width: 70%;
-  max-height: 70%;
-}
-
+.problem-img.small-img,
 .problem-img.large-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 填滿容器，高度貼合 */
 }
 </style>

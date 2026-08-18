@@ -9,36 +9,13 @@
 
   <div class="information bg-white">
     <div class="container-xl custom-padding">
-      <section class="project-information">
-        <BaseDot text="專案資訊" />
-        <hr class="mt-8 mb-6" />
-        <div class="row gy-6">
-          <div class="col-12 col-md-6 d-md-flex">
-            <h4 class="fw-medium fs-9 lh-170">擔任角色</h4>
-            <p class="ps-md-16">UI/UX 設計師</p>
-          </div>
-          <div class="col-12 col-md-6 d-md-flex">
-            <h4 class="fw-medium fs-9 lh-170">專案週期</h4>
-            <p class="ps-md-16">前期設計 1 個月，持續迭代中</p>
-          </div>
-          <div class="col-12 col-md-6 d-md-flex">
-            <h4 class="fw-medium fs-9 lh-170">使用工具</h4>
-            <ul>
-              <li>Figma</li>
-              <li>AI + Storybook</li>
-            </ul>
-          </div>
-          <div class="col-12 col-md-6 d-md-flex">
-            <h4 class="fw-medium fs-9 lh-170">負責項目</h4>
-            <ul>
-              <li>視覺提案</li>
-              <li>Design System</li>
-              <li>Wireframe</li>
-              <li>UI Hand-off</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <ProjectInformation
+        role="UI/UX 設計師"
+        project-duration="前期設計 1 個月，持續迭代中"
+        duration-label="專案週期"
+        :tools="projectTools"
+        :tasks="projectTasks"
+      />
 
       <hr class="my-12" />
 
@@ -99,7 +76,7 @@
     </div>
   </div>
 
-  <ParallaxSection image="EOMC/Multiple mockups.png" />
+  <ParallaxSection image="EOMC/Multiple mockups.png" class="eomc-parallax" />
 
   <section class="interface-showcase bg-white">
     <div class="container-xl showcase-inner">
@@ -113,10 +90,10 @@
 
     <div class="showcase-split bg-info">
       <div class="container-xl row align-items-center g-12">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 showcase-media">
           <img src="/EOMC/ui-semanticcolor.png" alt="語意色彩介面" class="content-image" />
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 showcase-copy-block">
           <h3 class="fw-medium">以色彩區分資訊狀態，讓異常一眼可見</h3>
           <p class="section-copy">
             透過綠色與橘色區分正常與異常資訊，降低數據判讀負擔，協助使用者快速聚焦需要關注的數值。
@@ -127,13 +104,13 @@
 
     <div class="showcase-split">
       <div class="container-xl row align-items-center g-12">
-        <div class="col-12 col-lg-6 order-2 order-lg-1">
+        <div class="col-12 col-lg-6 showcase-copy-block">
           <h3 class="fw-medium">延續一致操作邏輯，降低功能擴充的學習成本</h3>
           <p class="section-copy">
             將常見管理任務整理為一致的操作模式，讓不同功能沿用相同的搜尋、檢視與編輯邏輯，使系統持續擴充時仍能維持熟悉的使用體驗。
           </p>
         </div>
-        <div class="col-12 col-lg-6 order-1 order-lg-2">
+        <div class="col-12 col-lg-6 showcase-media">
           <img src="/EOMC/ui-backplatform.png" alt="後台管理介面" class="content-image" />
         </div>
       </div>
@@ -157,11 +134,16 @@
 <script setup>
 import BaseDot from '@/components/Dot.vue'
 import WorkHead from '@/components/WorkHead.vue'
+import ProjectInformation from '@/components/ProjectInformation.vue'
 import ProjectChallenge from '@/components/ProjectChallenge.vue'
 import TargetSection from '@/components/TargetSection.vue'
 import ParallaxSection from '@/components/ParallaxSection.vue'
 import ResultSection from '@/components/ResultSection.vue'
 import OthersWorkSection from '@/components/OthersWorkSection.vue'
+
+const projectTools = ['Figma', 'AI + Storybook']
+
+const projectTasks = ['視覺提案', 'Design System', 'Wireframe', 'UI Hand-off']
 
 const projectChallenges = [
   {
@@ -214,19 +196,6 @@ const targetSectionSteps = [
 
 .custom-padding {
   padding: 60px;
-}
-
-.project-information h4 {
-  min-width: 84px;
-}
-
-.project-information p,
-.project-information ul {
-  margin-bottom: 0;
-}
-
-.project-information ul {
-  padding-left: 56px;
 }
 
 .section-copy {
@@ -331,13 +300,13 @@ const targetSectionSteps = [
   margin-bottom: 24px;
 }
 
-@media (max-width: 768px) {
-  .custom-padding {
-    padding: 40px 24px;
+@media (max-width: 991.98px) {
+  .information {
+    border-radius: 24px;
   }
 
-  .project-information ul {
-    padding-left: 20px;
+  .information > .container-xl.custom-padding {
+    padding: 60px 24px;
   }
 
   .information :deep(.img-padding) {
@@ -359,7 +328,8 @@ const targetSectionSteps = [
   }
 
   .storybook-image {
-    height: 220px;
+    height: auto;
+    object-fit: contain;
   }
 
   .showcase-inner,
@@ -368,15 +338,88 @@ const targetSectionSteps = [
   }
 
   .showcase-inner h3 {
-    font-size: 1.35rem;
+    font-size: 20px;
   }
 
   .showcase-split h3 {
-    font-size: 1.35rem;
+    font-size: 20px;
   }
 
   .bento-image {
+    width: 100%;
     max-width: 100%;
+  }
+
+  .showcase-copy {
+    margin-bottom: 32px;
+  }
+
+  .showcase-split .container-xl.row {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+  }
+
+  .showcase-split .container-xl.row > [class*='col-'] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .showcase-split .container-xl.row > [class*='col-'] + [class*='col-'] {
+    margin-top: 0;
+  }
+
+  .showcase-split .showcase-copy-block {
+    order: 1;
+    text-align: center;
+  }
+
+  .showcase-split .showcase-media {
+    order: 2;
+    margin-top: 32px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .eomc-parallax :deep(.parallax-background) {
+    height: 100%;
+    top: 0;
+  }
+
+  .showcase-inner,
+  .showcase-split {
+    padding: 48px 24px 56px;
+  }
+
+  .showcase-inner h3,
+  .showcase-split h3 {
+    font-size: 18px;
+  }
+
+  .showcase-copy,
+  .showcase-split .section-copy {
+    font-size: 14px;
+  }
+
+  .showcase-copy {
+    margin-bottom: 24px;
+  }
+
+  .flow-row {
+    gap: 4px;
+  }
+
+  .flow-row div {
+    font-size: 11px;
+    min-height: 60px;
+    padding: 6px 4px;
+  }
+
+  .flow-row span {
+    font-size: 16px;
   }
 }
 </style>

@@ -36,12 +36,14 @@ onMounted(() => {
       <h2 class="text-dark h1 pb-8 mb-0 fw-medium pt-8">Work</h2>
       <div class="row g-16">
         <div class="col-md-6 col-12">
-          <RouterLink to="/work/chargingStation" class="text-decoration-none">
-            <img
-              src="/Work_Overview/ChargingStationDSSDesign.jpg"
-              alt="work-img-2"
-              class="img-fluid work-img"
-            />
+          <RouterLink to="/work/chargingStation" class="text-decoration-none work-link">
+            <div class="work-image-wrap">
+              <img
+                src="/Work_Overview/ChargingStationDSSDesign.jpg"
+                alt="work-img-2"
+                class="img-fluid work-img"
+              />
+            </div>
             <div class="tag pt-8" @click.stop>
               <span class="button border border-1 border-success text-success lh-170 me-3">
                 Web
@@ -57,8 +59,10 @@ onMounted(() => {
           </RouterLink>
         </div>
         <div class="col-md-6 col-12">
-          <RouterLink to="/work/lineLiff" class="text-decoration-none">
-            <img src="/Work_Overview/LINELiff.jpg" alt="work-img-1" class="img-fluid work-img" />
+          <RouterLink to="/work/lineLiff" class="text-decoration-none work-link">
+            <div class="work-image-wrap">
+              <img src="/Work_Overview/LINELiff.jpg" alt="work-img-1" class="img-fluid work-img" />
+            </div>
             <div class="tag pt-8" @click.stop>
               <span class="button border border-1 border-success text-success lh-170 me-3">
                 Moible
@@ -76,12 +80,14 @@ onMounted(() => {
           </RouterLink>
         </div>
         <div class="col-md-6 col-12">
-          <RouterLink to="/work/eomc" class="text-decoration-none">
-            <img
-              src="/EOMC/overview.jpg"
-              alt="企業營運中心管理系統"
-              class="img-fluid work-img"
-            />
+          <RouterLink to="/work/eomc" class="text-decoration-none work-link">
+            <div class="work-image-wrap">
+              <img
+                src="/EOMC/overview.jpg"
+                alt="企業營運中心管理系統"
+                class="img-fluid work-img"
+              />
+            </div>
             <div class="tag pt-8" @click.stop>
               <span class="button border border-1 border-success text-success lh-170 me-3">
                 Web
@@ -97,12 +103,14 @@ onMounted(() => {
           </RouterLink>
         </div>
         <div class="col-md-6 col-12">
-          <RouterLink to="/work/CommandCenterDashboard" class="text-decoration-none">
-            <img
-              src="/Work_Overview/CommandCenterDashboard.jpg"
-              alt="work-img-3"
-              class="img-fluid work-img"
-            />
+          <RouterLink to="/work/CommandCenterDashboard" class="text-decoration-none work-link">
+            <div class="work-image-wrap">
+              <img
+                src="/Work_Overview/CommandCenterDashboard.jpg"
+                alt="work-img-3"
+                class="img-fluid work-img"
+              />
+            </div>
             <div class="tag pt-8" @click.stop>
               <span class="button border border-1 border-success text-success lh-170 me-3">
                 Cross Platform
@@ -118,12 +126,14 @@ onMounted(() => {
           </RouterLink>
         </div>
         <div class="col-md-6 col-12">
-          <RouterLink to="/work/platformRedesign" class="text-decoration-none">
-            <img
-              src="/Work_Overview/PlatformRedesign.jpg"
-              alt="work-img-4"
-              class="img-fluid work-img"
-            />
+          <RouterLink to="/work/platformRedesign" class="text-decoration-none work-link">
+            <div class="work-image-wrap">
+              <img
+                src="/Work_Overview/PlatformRedesign.jpg"
+                alt="work-img-4"
+                class="img-fluid work-img"
+              />
+            </div>
             <div class="tag pt-8" @click.stop>
               <span class="button border border-1 border-success text-success lh-170 me-3">
                 Web
@@ -174,7 +184,23 @@ onMounted(() => {
 .work-img {
   width: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 280ms ease;
+}
+.work-image-wrap {
+  overflow: hidden;
   border-radius: 12px;
+  transition: box-shadow 280ms ease;
+}
+.work-link:hover .work-img,
+.work-link:focus-visible .work-img,
+.work-link:active .work-img {
+  transform: scale(1.08);
+}
+.work-link:hover .work-image-wrap,
+.work-link:focus-visible .work-image-wrap,
+.work-link:active .work-image-wrap {
+  box-shadow: 0 10px 24px rgba(37, 38, 45, 0.16);
 }
 p {
   color: #25262d;

@@ -2,7 +2,7 @@
   <section>
     <BaseDot text="設計目標" class="pb-12" />
     <div class="row g-12">
-      <div v-for="step in props.steps" :key="step.num" class="col-12 col-md-4 d-flex">
+      <div v-for="step in props.steps" :key="step.stepNum" class="col-12 target-column d-flex">
         <TargetCardStep
           :title="step.title"
           :content="step.content"
@@ -35,3 +35,17 @@ const props = defineProps({
   },
 })
 </script>
+
+<style scoped>
+.target-column {
+  flex: 0 0 auto;
+  width: 100%;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .target-column {
+    width: 33.33333333%;
+  }
+}
+</style>
