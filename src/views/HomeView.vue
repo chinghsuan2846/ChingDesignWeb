@@ -2,39 +2,18 @@
 import CustomButton from '@/components/Button.vue'
 import { useBreakpoint } from '@/composables/useBreakpoint'
 import { RouterLink } from 'vue-router'
-import { ref, onMounted } from 'vue'
-
-const bgVideo = ref(null)
 const { isXs, isSm } = useBreakpoint()
-
-onMounted(() => {
-  const video = bgVideo.value
-  if (!video) return
-
-  // 判斷是否為 iOS
-  const ua = navigator.userAgent
-  const isIOS = /iPad|iPhone|iPod/.test(ua) || (ua.includes('Mac') && navigator.maxTouchPoints > 0)
-  const isSafari = /^((?!chrome|android).)*safari/i.test(ua)
-
-  // ✅ Safari 一律用 mov/mp4，其餘用 webm
-  const useMOV = isIOS || isSafari
-
-  // 動態建立 <source>
-  const source = document.createElement('source')
-  source.src = useMOV
-    ? 'Globe/HomeAnimation/iOSAnimation.mov'
-    : 'Globe/HomeAnimation/chromeAnimation.webm'
-  source.type = useMOV ? 'video/quicktime' : 'video/webm'
-
-  video.appendChild(source)
-})
+const baseUrl = import.meta.env.BASE_URL
 </script>
 
 <template>
   <div class="page-wrapper background">
     <!-- 固定背景圖 -->
     <div class="fixed-bg d-flex justify-content-start align-items-center">
-      <video ref="bgVideo" autoplay muted loop playsinline></video>
+      <video autoplay muted loop playsinline preload="auto" :poster="`${baseUrl}Home/BG_Image.svg`">
+        <source :src="`${baseUrl}Globe/HomeAnimation/chromeAnimation.webm`" type="video/webm" />
+        <source :src="`${baseUrl}Globe/HomeAnimation/iOSAnimation.mov`" type="video/quicktime" />
+      </video>
     </div>
 
     <!-- 滿版內容區塊 -->
@@ -497,11 +476,22 @@ onMounted(() => {
 
 /* 手機：影片再縮小，保留更多背景留白 */
 @media (max-width: 767.98px) {
+  .fixed-bg {
+    height: calc(80px + clamp(520px, 122vw, 560px));
+    align-items: flex-end !important;
+    overflow: visible;
+  }
+
   .fixed-bg video {
-    width: 85%;
+    width: min(85%, calc(100% - 32px));
     height: 85%;
+    object-position: 10% center;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .home-hero {
+    height: clamp(520px, 122vw, 560px);
   }
 
   .full-height-section > .container {
@@ -519,6 +509,11 @@ onMounted(() => {
   .full-height-section > .container > .row > section {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+
+  .full-height-section > .container > .row > section:nth-child(n + 2) {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
   }
 }
 

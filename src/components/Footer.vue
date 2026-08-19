@@ -43,10 +43,16 @@ footer {
     padding: 24px 60px;
   }
 }
+@media (max-width: 700px) {
+  footer {
+    margin-top: 40px;
+  }
+}
 @media (max-width: 390px) {
   footer {
-    margin-left: 16px;
-    margin-right: 16px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .footer-text p {
