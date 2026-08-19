@@ -23,6 +23,19 @@
   background-size: cover;
   background-position: center center;
 }
+
+@media (max-width: 767.98px) {
+  .parallax-section {
+    height: clamp(260px, 42vh, 340px);
+  }
+
+  .parallax-background {
+    height: 120%;
+    top: -10%;
+    background-size: 150% auto;
+    background-repeat: no-repeat;
+  }
+}
 </style>
 
 <script setup>

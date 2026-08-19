@@ -723,8 +723,8 @@ p {
 
 @media (max-width: 390px) {
   .charging-station-parallax :deep(.parallax-background) {
-    height: 100%;
-    top: 0;
+    height: 120%;
+    top: -10%;
   }
 
   .interface-title {
