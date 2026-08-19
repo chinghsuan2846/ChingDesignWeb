@@ -1,16 +1,14 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { ref, onMounted } from 'vue'
+import TransparentAnimation from '@/components/TransparentAnimation.vue'
 
 const bgVideo = ref(null)
 const baseUrl = import.meta.env.BASE_URL
 const userAgent = navigator.userAgent
-const isIOS = /iPad|iPhone|iPod/.test(userAgent) ||
-  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-const isSafari = /Safari/i.test(userAgent) && !/Chrome|CriOS|Android/i.test(userAgent)
-const bgVideoSrc = isIOS || isSafari
-  ? `${baseUrl}Globe/SectionAnimation/iOSAnimation.mov`
-  : `${baseUrl}Globe/SectionAnimation/chromeAnimation.webm`
+const useTransparentAnimation = /iPad|iPhone|iPod/.test(userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+  (/Safari/i.test(userAgent) && !/Chrome|CriOS|Android/i.test(userAgent))
 
 onMounted(() => {
   const video = bgVideo.value
@@ -18,27 +16,35 @@ onMounted(() => {
 
   video.muted = true
   video.defaultMuted = true
+  const tryPlay = () => {
+    if (video.paused) video.play().catch(() => {})
+  }
+  video.addEventListener('loadeddata', tryPlay, { once: true })
   video.load()
-
-  const playPromise = video.play()
-  playPromise?.catch(() => {
-    // Safari 仍可能依系統設定阻擋自動播放，此時保留背景色作為降級畫面。
-  })
+  tryPlay()
 })
 </script>
 
 <template>
   <div class="fixed-bg d-flex justify-content-start align-items-center">
+    <TransparentAnimation
+      v-if="useTransparentAnimation"
+      animation-path="Globe/SectionAnimation/SectionAnimation.json"
+      class="transparent-animation-bg"
+    />
     <video
+      v-else
       ref="bgVideo"
-      :src="bgVideoSrc"
       autoplay
       muted
       loop
       playsinline
       webkit-playsinline
       preload="auto"
-    ></video>
+    >
+      <source :src="`${baseUrl}Globe/SectionAnimation/chromeAnimation.webm`" type="video/webm" />
+      <source :src="`${baseUrl}Globe/SectionAnimation/iOSAnimation.mov`" type="video/quicktime" />
+    </video>
   </div>
   <section class="relative background">
     <div class="container">
@@ -176,6 +182,11 @@ onMounted(() => {
 }
 
 .fixed-bg video {
+  width: 85%;
+  height: 100%;
+  overflow: visible;
+}
+.transparent-animation-bg {
   width: 85%;
   height: 100%;
   overflow: visible;

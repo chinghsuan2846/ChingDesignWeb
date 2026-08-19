@@ -1,41 +1,28 @@
 <script setup>
 import CustomButton from '@/components/Button.vue'
 import { useBreakpoint } from '@/composables/useBreakpoint'
+import TransparentAnimation from '@/components/TransparentAnimation.vue'
 import { RouterLink } from 'vue-router'
-import { onMounted, ref } from 'vue'
 const { isXs, isSm } = useBreakpoint()
 const baseUrl = import.meta.env.BASE_URL
-
-const homeVideo = ref(null)
 const userAgent = navigator.userAgent
-const isIOS = /iPad|iPhone|iPod/.test(userAgent) ||
-  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-const isSafari = /Safari/i.test(userAgent) && !/Chrome|CriOS|Android/i.test(userAgent)
-const homeVideoSrc = isIOS || isSafari
-  ? `${baseUrl}Globe/HomeAnimation/iOSAnimation.mov`
-  : `${baseUrl}Globe/HomeAnimation/chromeAnimation.webm`
-
-onMounted(() => {
-  const video = homeVideo.value
-  if (!video) return
-
-  video.muted = true
-  video.defaultMuted = true
-
-  const playPromise = video.play()
-  playPromise?.catch(() => {
-    // Safari 仍可能依系統設定阻擋自動播放，此時保留 poster 作為降級畫面。
-  })
-})
+const useTransparentAnimation = /iPad|iPhone|iPod/.test(userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+  (/Safari/i.test(userAgent) && !/Chrome|CriOS|Android/i.test(userAgent))
 </script>
 
 <template>
   <div class="page-wrapper background">
     <!-- 固定背景圖 -->
     <div class="fixed-bg d-flex justify-content-start align-items-center">
+      <TransparentAnimation
+        v-if="useTransparentAnimation"
+        animation-path="Globe/HomeAnimation/HomeAnimation.json"
+        preserve-aspect-ratio="xMinYMid slice"
+        class="transparent-animation-bg"
+      />
       <video
-        ref="homeVideo"
-        :src="homeVideoSrc"
+        v-else
         autoplay
         muted
         loop
@@ -43,7 +30,10 @@ onMounted(() => {
         webkit-playsinline
         preload="auto"
         :poster="`${baseUrl}Home/BG_Image.svg`"
-      ></video>
+      >
+        <source :src="`${baseUrl}Globe/HomeAnimation/chromeAnimation.webm`" type="video/webm" />
+        <source :src="`${baseUrl}Globe/HomeAnimation/iOSAnimation.mov`" type="video/quicktime" />
+      </video>
     </div>
 
     <!-- 滿版內容區塊 -->
@@ -192,7 +182,8 @@ onMounted(() => {
   overflow: hidden;
 }
 
-.fixed-bg video {
+.fixed-bg video,
+.fixed-bg .transparent-animation-bg {
   width: 85%;
   height: 100%;
   overflow: visible;
@@ -406,7 +397,8 @@ onMounted(() => {
     height: 751px;
   }
 
-  .fixed-bg video {
+  .fixed-bg video,
+  .fixed-bg .transparent-animation-bg {
     width: 100%;
   }
 
@@ -477,9 +469,13 @@ onMounted(() => {
     align-items: flex-start;
   }
 
-  .fixed-bg video {
+  .fixed-bg video,
+  .fixed-bg .transparent-animation-bg {
     width: 100%;
     height: 100%;
+  }
+
+  .fixed-bg video {
     object-fit: cover;
     object-position: 10% center;
   }
@@ -512,12 +508,16 @@ onMounted(() => {
     overflow: visible;
   }
 
-  .fixed-bg video {
+  .fixed-bg video,
+  .fixed-bg .transparent-animation-bg {
     width: min(85%, calc(100% - 32px));
     height: 85%;
-    object-position: 10% center;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .fixed-bg video {
+    object-position: 10% center;
   }
 
   .home-hero {
