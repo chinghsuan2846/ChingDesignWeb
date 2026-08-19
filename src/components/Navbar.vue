@@ -7,7 +7,9 @@ defineOptions({
   name: 'AppHeader',
 })
 
-const { isXs } = useBreakpoint()
+const { width } = useBreakpoint()
+
+const isCompact = () => width.value <= 450
 
 const isOpen = ref(false)
 
@@ -42,7 +44,7 @@ const hideNavbar = () => {
           href="sunny_簡歷.pdf"
           download="sunny_簡歷.pdf"
           class="btn btn-outline-success"
-          :class="{ dNone: isXs() }"
+          :class="{ dNone: isCompact() }"
         >
           Download Resume
         </a>
@@ -61,10 +63,11 @@ const hideNavbar = () => {
           >
           <RouterLink class="nav-link text-success" to="/work" @click="hideNavbar">Work</RouterLink>
           <a
-            v-if="isXs()"
+            v-if="isCompact()"
             href="sunny_簡歷.pdf"
             download="sunny_簡歷.pdf"
-            class="btn btn-outline-success"
+            class="nav-link text-success"
+            @click="hideNavbar"
           >
             Download Resume
           </a>
