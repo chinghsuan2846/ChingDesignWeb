@@ -10,7 +10,9 @@
               <h4 class="fs-7 fw-medium text-success">查看其他作品</h4>
             </div>
           </div>
-          <CustomButton>查看更多</CustomButton>
+          <RouterLink to="/work" class="text-decoration-none">
+            <CustomButton>查看更多</CustomButton>
+          </RouterLink>
         </div>
 
         <div class="col-12 col-lg-9">
