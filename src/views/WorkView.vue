@@ -3,33 +3,42 @@ import { RouterLink } from 'vue-router'
 import { ref, onMounted } from 'vue'
 
 const bgVideo = ref(null)
+const baseUrl = import.meta.env.BASE_URL
+const userAgent = navigator.userAgent
+const isIOS = /iPad|iPhone|iPod/.test(userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+const isSafari = /Safari/i.test(userAgent) && !/Chrome|CriOS|Android/i.test(userAgent)
+const bgVideoSrc = isIOS || isSafari
+  ? `${baseUrl}Globe/SectionAnimation/iOSAnimation.mov`
+  : `${baseUrl}Globe/SectionAnimation/chromeAnimation.webm`
 
 onMounted(() => {
   const video = bgVideo.value
   if (!video) return
 
-  // 判斷是否為 iOS
-  const ua = navigator.userAgent
-  const isIOS = /iPad|iPhone|iPod/.test(ua) || (ua.includes('Mac') && navigator.maxTouchPoints > 0)
-  const isSafari = /^((?!chrome|android).)*safari/i.test(ua)
+  video.muted = true
+  video.defaultMuted = true
+  video.load()
 
-  // ✅ Safari 一律用 mov/mp4，其餘用 webm
-  const useMOV = isIOS || isSafari
-
-  // 動態建立 <source>
-  const source = document.createElement('source')
-  source.src = useMOV
-    ? 'Globe/SectionAnimation/iOSAnimation.mov'
-    : 'Globe/SectionAnimation/chromeAnimation.webm'
-  source.type = useMOV ? 'video/quicktime' : 'video/webm'
-
-  video.appendChild(source)
+  const playPromise = video.play()
+  playPromise?.catch(() => {
+    // Safari 仍可能依系統設定阻擋自動播放，此時保留背景色作為降級畫面。
+  })
 })
 </script>
 
 <template>
   <div class="fixed-bg d-flex justify-content-start align-items-center">
-    <video ref="bgVideo" autoplay muted loop playsinline></video>
+    <video
+      ref="bgVideo"
+      :src="bgVideoSrc"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="auto"
+    ></video>
   </div>
   <section class="relative background">
     <div class="container">

@@ -2,18 +2,48 @@
 import CustomButton from '@/components/Button.vue'
 import { useBreakpoint } from '@/composables/useBreakpoint'
 import { RouterLink } from 'vue-router'
+import { onMounted, ref } from 'vue'
 const { isXs, isSm } = useBreakpoint()
 const baseUrl = import.meta.env.BASE_URL
+
+const homeVideo = ref(null)
+const userAgent = navigator.userAgent
+const isIOS = /iPad|iPhone|iPod/.test(userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+const isSafari = /Safari/i.test(userAgent) && !/Chrome|CriOS|Android/i.test(userAgent)
+const homeVideoSrc = isIOS || isSafari
+  ? `${baseUrl}Globe/HomeAnimation/iOSAnimation.mov`
+  : `${baseUrl}Globe/HomeAnimation/chromeAnimation.webm`
+
+onMounted(() => {
+  const video = homeVideo.value
+  if (!video) return
+
+  video.muted = true
+  video.defaultMuted = true
+
+  const playPromise = video.play()
+  playPromise?.catch(() => {
+    // Safari 仍可能依系統設定阻擋自動播放，此時保留 poster 作為降級畫面。
+  })
+})
 </script>
 
 <template>
   <div class="page-wrapper background">
     <!-- 固定背景圖 -->
     <div class="fixed-bg d-flex justify-content-start align-items-center">
-      <video autoplay muted loop playsinline preload="auto" :poster="`${baseUrl}Home/BG_Image.svg`">
-        <source :src="`${baseUrl}Globe/HomeAnimation/chromeAnimation.webm`" type="video/webm" />
-        <source :src="`${baseUrl}Globe/HomeAnimation/iOSAnimation.mov`" type="video/quicktime" />
-      </video>
+      <video
+        ref="homeVideo"
+        :src="homeVideoSrc"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        :poster="`${baseUrl}Home/BG_Image.svg`"
+      ></video>
     </div>
 
     <!-- 滿版內容區塊 -->
