@@ -440,7 +440,7 @@ p {
 .usability-task-badge {
   float: left;
   white-space: nowrap;
-  margin-right: 16px !important;
+  margin-right: 40px !important;
 }
 .usability-task-list {
   margin-bottom: 0;
@@ -712,6 +712,29 @@ p {
   .custom-padding-3,
   .custom-padding-4 {
     padding-top: 32px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .usability-task {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .usability-task::after {
+    display: none;
+  }
+
+  .usability-task-badge {
+    float: none;
+    margin-right: 0 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .usability-task-list {
+    width: 100%;
+    padding-left: 24px !important;
   }
 }
 
