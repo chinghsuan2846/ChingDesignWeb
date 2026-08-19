@@ -1,8 +1,11 @@
 <template>
   <section class="parallax-section bg-danger">
     <div
+      ref="parallaxBackground"
       class="parallax-background rellax"
       :data-rellax-speed="props.speed"
+      :data-rellax-xs-speed="props.mobileSpeed"
+      :data-rellax-mobile-speed="props.mobileSpeed"
       :style="{ backgroundImage: `url('${props.image}')` }"
     ></div>
   </section>
@@ -22,6 +25,8 @@
   top: -25%;
   background-size: cover;
   background-position: center center;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 @media (max-width: 767.98px) {
@@ -39,7 +44,7 @@
 </style>
 
 <script setup>
-import { onMounted, nextTick } from 'vue'
+import { onBeforeUnmount, onMounted, nextTick, ref } from 'vue'
 import Rellax from 'rellax'
 
 const props = defineProps({
@@ -51,17 +56,32 @@ const props = defineProps({
     type: Number,
     default: -5,
   },
+  mobileSpeed: {
+    type: Number,
+    default: -2,
+  },
 })
+
+const parallaxBackground = ref(null)
+let rellaxInstance
+
+const initializeParallax = () => {
+  if (rellaxInstance || !parallaxBackground.value) return
+  rellaxInstance = new Rellax(parallaxBackground.value, { center: true })
+}
 
 onMounted(() => {
   nextTick(() => {
     const img = new Image()
+    img.onload = initializeParallax
+    img.onerror = initializeParallax
     img.src = props.image
-    img.onload = () => {
-      new Rellax('.rellax', { center: true })
-    }
+    if (img.complete) initializeParallax()
   })
 })
 
-console.log(props.image)
+onBeforeUnmount(() => {
+  rellaxInstance?.destroy()
+  rellaxInstance = null
+})
 </script>
